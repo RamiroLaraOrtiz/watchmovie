@@ -9,6 +9,7 @@ export default function Movie(props) {
         alt={props.img}
         key={props.img}
       />
+      <br></br>
       <span className="color-font">{props.title}</span>
     </div>
   );
