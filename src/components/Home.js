@@ -1,6 +1,6 @@
-import "../Styles/Home.css";
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
+import "../Styles/Home.css";
 export default function Home() {
   const [peliculas, setPeliculas] = useState([]);
 
@@ -21,7 +21,11 @@ export default function Home() {
       <div className="grid-container">
         {!!peliculas.results &&
           peliculas.results.map((pelicula) => (
-            <Movie img={pelicula.poster_path} title={pelicula.title}></Movie>
+            <Movie
+              img={pelicula.poster_path}
+              title={pelicula.title}
+              key={pelicula.id}
+            ></Movie>
           ))}
       </div>
     </div>

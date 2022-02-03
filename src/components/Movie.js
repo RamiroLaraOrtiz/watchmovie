@@ -1,5 +1,4 @@
-import "../Styles/Home.css";
-
+import "../Styles/Movie.css";
 export default function Movie(props) {
   return (
     <div className="grid-item">
@@ -7,7 +6,6 @@ export default function Movie(props) {
         className="image-poster border-img"
         src={"https://image.tmdb.org/t/p/w154/" + props.img}
         alt={props.img}
-        key={props.img}
       />
       <br></br>
       <span className="color-font">{props.title}</span>

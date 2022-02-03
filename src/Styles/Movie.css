@@ -1,0 +1,22 @@
+.grid-item {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.image-poster:hover {
+  visibility: visible;
+  transform: translateY(10px);
+  opacity: 1;
+  transition: 0.3s linear;
+  animation: jumping 1s ease-in-out infinite alternate;
+}
+@keyframes jumping {
+  0% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(1px);
+  }
+}
