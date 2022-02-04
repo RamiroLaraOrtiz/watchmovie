@@ -20,3 +20,7 @@
     transform: translateY(1px);
   }
 }
+.no-link {
+  text-decoration: none;
+  color: white;
+}

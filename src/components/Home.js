@@ -24,6 +24,7 @@ export default function Home() {
             <Movie
               img={pelicula.poster_path}
               title={pelicula.title}
+              id={pelicula.id}
               key={pelicula.id}
             ></Movie>
           ))}
