@@ -8,7 +8,7 @@ export default function DetailMovie() {
   const [videoDetail, setVideoDetail] = useState([]);
   const { movieId } = useParams();
 
-  const imageUrl = "http://image.tmdb.org/t/p/w500";
+  const imageUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
     getDetailsMovie(movieId);
@@ -32,20 +32,26 @@ export default function DetailMovie() {
   // {!!videoDetail.results &&
   //videoDetail.results.map((video) => <p>{video.name}</p>)}
   return (
-    <div className="detailsContainer">
+    <div
+      className="detailsContainer background-movie"
+      style={{ backgroundImage: `url(${imageUrl + movieDetail.poster_path})` }}
+    >
       <img
         className="col movieImg"
         src={imageUrl + movieDetail.poster_path}
         alt={movieDetail.titl}
       ></img>
-      <div className="col movieDetails">
+      <div className="col2 movieDetails">
         <p className="firstItem">
-          <strong>Title:</strong>
-          {movieDetail.title}
+          <strong>{movieDetail.title}</strong>
         </p>
-        <p>
-          <strong>Genres:</strong>
-
+        <p className="p-titles ">
+          <strong className="color-titles">Tagline: </strong>
+          {movieDetail.tagline}
+        </p>
+        <p className="color-titles">{movieDetail.overview}</p>
+        <p className="p-titles ">
+          <strong className="color-titles">Genres: </strong>
           {!!movieDetail.genres &&
             movieDetail.genres
               .map((genre) => {
@@ -53,9 +59,16 @@ export default function DetailMovie() {
               })
               .join(", ")}
         </p>
-        <p>
-          <strong>Overview:</strong>
-          {movieDetail.overview}
+        <p className="p-titles ">
+          <strong className="color-titles">Homepage: </strong>
+          <a className="no-link" href={movieDetail.homepage}>
+            {movieDetail.homepage}
+          </a>
+        </p>
+
+        <p className="p-titles ">
+          <strong className="color-titles">Release date: </strong>
+          {movieDetail.release_date}
         </p>
       </div>
     </div>
