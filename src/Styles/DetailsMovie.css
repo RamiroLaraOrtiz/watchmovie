@@ -1,10 +1,16 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 .detailsContainer {
   display: flex;
   justify-content: flex-start;
 }
+.imgesContainer {
+  display: flex;
+  justify-content: center;
+}
 
 .col {
-  max-width: 245px;
+  max-width: 300px;
   width: 80%;
   margin: 15px;
   height: auto;
@@ -18,6 +24,11 @@
   height: auto;
   height: 80%;
   text-align: justify;
+  flex-grow: 1;
+}
+
+.colImages {
+  max-width: 62%;
   flex-grow: 1;
 }
 .movieImg {

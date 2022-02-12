@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
+import { getService } from "../utils/httpClient";
 import "../Styles/Home.css";
 export default function Home() {
   const [peliculas, setPeliculas] = useState([]);
@@ -9,10 +10,9 @@ export default function Home() {
   }, []);
 
   const getMovies = async () => {
-    var response = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=6d799e2a11822f8942233a5824109bc3&language=en-US&page=1"
-    );
-    var dataResponse = await response.json();
+    let urlMovies = "https://api.themoviedb.org/3/movie/popular?page=1";
+    var response = getService(urlMovies);
+    var dataResponse = await response;
     setPeliculas(dataResponse);
   };
 
