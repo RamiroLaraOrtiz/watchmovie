@@ -3,6 +3,7 @@ import { getService } from "../utils/httpClient";
 import { useParams } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { useEffect, useState } from "react";
+import CircularProgress from "./CircularProgress";
 
 export default function DetailMovie() {
   const [movieDetail, setMovieDetail] = useState([]);
@@ -78,6 +79,12 @@ export default function DetailMovie() {
           <p className="firstItem">
             <strong>{movieDetail.title}</strong>
           </p>
+          <CircularProgress
+            size={250}
+            strokeWidth={50}
+            percentage={90.2}
+            color="green"
+          />
           <p className="p-titles ">
             <strong className="color-titles">Tagline: </strong>
             {movieDetail.tagline}
