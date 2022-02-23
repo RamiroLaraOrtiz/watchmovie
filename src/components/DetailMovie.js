@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import "../Styles/DetailsMovie.css";
 import { getService } from "../utils/httpClient";
 import { useParams } from "react-router-dom";
@@ -8,7 +9,9 @@ import CircularProgress from "./CircularProgress";
 export default function DetailMovie() {
   const [movieDetail, setMovieDetail] = useState([]);
 
-  const [imagesAndVideoDetail, setimagesAndVideoDetail] = useState([]);
+  const [imagesDetail, setimagesDetail] = useState([]);
+
+  const [videosDetail, setVideosDetail] = useState([]);
 
   const { movieId } = useParams();
 
@@ -27,7 +30,7 @@ export default function DetailMovie() {
     setMovieDetail(dataResponse);
   };
   const getDetailsMovieVideosAndImages = async (movieId) => {
-    let imagesAndVideos = [];
+    let imagesCrousel = [];
     var urlDetailsVideos = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
     var urlDetailsImages = `https://api.themoviedb.org/3/movie/${movieId}/images`;
 
@@ -37,29 +40,28 @@ export default function DetailMovie() {
     var dataResponseVideos = await response;
     var dataResponseImages = await responseImages;
     dataResponseImages.backdrops.map((images) => {
-      imagesAndVideos.push({
+      imagesCrousel.push({
         original: `${imageUrl + images.file_path}`,
         thumbnail: `${imageUrl + images.file_path}`,
       });
-    });
-
-    dataResponseVideos.results.map((video) => {
-      if (video.site === "YouTube") {
-        imagesAndVideos.push({
-          thumbnail: `https://icones.pro/wp-content/uploads/2021/02/icone-youtube-player.png`,
-          original: `https://icones.pro/wp-content/uploads/2021/02/icone-youtube-player.png`,
-          embedUrl: `https://youtube.com/embed/${video.key}`,
-        });
-      }
     });
 
     dataResponseImages.posters.map((images) => {
-      imagesAndVideos.push({
+      imagesCrousel.push({
         original: `${imageUrl + images.file_path}`,
         thumbnail: `${imageUrl + images.file_path}`,
       });
     });
-    setimagesAndVideoDetail(imagesAndVideos);
+
+    setVideosDetail(dataResponseVideos);
+    setimagesDetail(imagesCrousel);
+  };
+
+  const convertMinsToTime = (mins) => {
+    let hours = Math.floor(mins / 60);
+    let minutes = mins % 60;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    return `${hours}hrs:${minutes}mins`;
   };
 
   return (
@@ -79,17 +81,39 @@ export default function DetailMovie() {
           <p className="firstItem">
             <strong>{movieDetail.title}</strong>
           </p>
-          <CircularProgress
-            size={250}
-            strokeWidth={50}
-            percentage={90.2}
-            color="green"
-          />
+          <div className="rate-and-dates">
+            <CircularProgress
+              size={250}
+              sizeSVG={80}
+              strokeWidth={20.5}
+              percentage={movieDetail.vote_average}
+              color="#f4b907"
+            />
+            <p className="p-titles ">
+              {convertMinsToTime(movieDetail.runtime)}
+            </p>
+          </div>
+          <div className="logos-companies">
+            <strong className="color-titles"> production companies: </strong>
+            {!!movieDetail.production_companies &&
+              movieDetail.production_companies.map((movie) => {
+                if (movie.logo_path != null) {
+                  return (
+                    <img
+                      className="img-logo"
+                      src={imageUrl + movie.logo_path}
+                      alt={movie.name}
+                    ></img>
+                  );
+                }
+              })}
+          </div>
+
           <p className="p-titles ">
             <strong className="color-titles">Tagline: </strong>
             {movieDetail.tagline}
           </p>
-          <p className="color-titles">{movieDetail.overview}</p>
+          <p className="color-titles p-overview">{movieDetail.overview}</p>
           <p className="p-titles ">
             <strong className="color-titles">Genres: </strong>
             {!!movieDetail.genres &&
@@ -117,8 +141,25 @@ export default function DetailMovie() {
       </div>
       <div className="imgesContainer">
         <div className="colImages">
-          <ImageGallery items={imagesAndVideoDetail} showIndex={true} />
+          <ImageGallery items={imagesDetail} showIndex={true} />
         </div>
+      </div>
+      <div className="videosContainer">
+        {!!videosDetail.results &&
+          videosDetail.results.map((video, index) => {
+            return (
+              <div className="col-video">
+                <iframe
+                  title={video.name}
+                  src={`https://youtube.com/embed/${video.key}`}
+                  key={video.name + index}
+                  allow=" allowFullScreen"
+                  allowFullScreen
+                ></iframe>
+                <p style={{ color: "white" }}>{video.name}</p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
