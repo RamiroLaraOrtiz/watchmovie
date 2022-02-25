@@ -75,7 +75,7 @@ export default function DetailMovie() {
         <img
           className="col movieImg"
           src={imageUrl + movieDetail.poster_path}
-          alt={movieDetail.titl}
+          alt={movieDetail.poster_path}
         ></img>
         <div className="col2 movieDetails">
           <p className="firstItem">
@@ -96,13 +96,14 @@ export default function DetailMovie() {
           <div className="logos-companies">
             <strong className="color-titles"> production companies: </strong>
             {!!movieDetail.production_companies &&
-              movieDetail.production_companies.map((movie) => {
+              movieDetail.production_companies.map((movie, index) => {
                 if (movie.logo_path != null) {
                   return (
                     <img
                       className="img-logo"
                       src={imageUrl + movie.logo_path}
-                      alt={movie.name}
+                      alt={movie.name + index}
+                      key={movie.name}
                     ></img>
                   );
                 }
@@ -153,7 +154,6 @@ export default function DetailMovie() {
                   title={video.name}
                   src={`https://youtube.com/embed/${video.key}`}
                   key={video.name + index}
-                  allow=" allowFullScreen"
                   allowFullScreen
                 ></iframe>
                 <p style={{ color: "white" }}>{video.name}</p>

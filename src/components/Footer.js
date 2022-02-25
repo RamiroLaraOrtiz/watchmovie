@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../Styles/Footer.css";
 export default function Footer() {
   return (
@@ -9,16 +10,16 @@ export default function Footer() {
               <h4>Sitesoch</h4>
               <ul>
                 <li>
-                  <a href="/">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="/">About</a>
+                  <Link to="/">About</Link>
                 </li>
                 <li>
-                  <a href="/">Pricing</a>
+                  <Link to="/">Pricing</Link>
                 </li>
                 <li>
-                  <a href="/">Privacy Policy</a>
+                  <Link to="/">Privacy Policy</Link>
                 </li>
               </ul>
             </div>
@@ -26,16 +27,16 @@ export default function Footer() {
               <h4>Get Help</h4>
               <ul>
                 <li>
-                  <a href="/">Shipping</a>
+                  <Link to="/">Shipping</Link>
                 </li>
                 <li>
-                  <a href="/">Returns</a>
+                  <Link to="/">Returns</Link>
                 </li>
                 <li>
-                  <a href="/">Order Status</a>
+                  <Link to="/">Order Status</Link>
                 </li>
                 <li>
-                  <a href="/">Payment Options</a>
+                  <Link to="/">Payment Options</Link>
                 </li>
               </ul>
             </div>
@@ -43,28 +44,28 @@ export default function Footer() {
               <h4>Address</h4>
               <ul>
                 <li>
-                  <a href="/">
+                  <Link to="/">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Cupiditate adipisci quia ab omnis id ipsum quae inventore
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>follow us</h4>
               <div className="social-links">
-                <a href="/">
-                  <i className="fab fa-google"></i>
-                </a>
-                <a href="/">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="/">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a href="/">
-                  <i className="fab fa-twitter"></i>
-                </a>
+                <Link to="/">
+                  <i className="fa fa-google"></i>
+                </Link>
+                <Link to="/">
+                  <i className="fa fa-facebook-f"></i>
+                </Link>
+                <Link to="/">
+                  <i className="fa fa-instagram"></i>
+                </Link>
+                <Link to="/">
+                  <i className="fa fa-twitter"></i>
+                </Link>
               </div>
             </div>
           </div>
