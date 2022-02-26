@@ -89,7 +89,8 @@ export default function DetailMovie() {
               percentage={movieDetail.vote_average}
               color="#f4b907"
             />
-            <p className="p-titles ">
+            <p style={{ "margin-left": "2%" }} className="p-titles">
+              <strong className="color-titles">RunTime: </strong>
               {convertMinsToTime(movieDetail.runtime)}
             </p>
           </div>

@@ -7,35 +7,35 @@
 
 .flex-container > div {
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 .paginate-ctn {
   display: flex;
+  flex-wrap: wrap;
 }
 .round-effect {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 17px;
   text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
   margin: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background: white;
+  border-radius: 3px;
+  padding: 5px 13px 5px 13px;
+  color: black;
 }
 
 .round-effect:hover {
   text-decoration: none;
   background: #dcf836;
-  color: #fff;
+  color: #131212;
 }
 .round-effect:hover a {
   text-decoration: none;
-  color: #fff;
+  color: #131212;
 }
 
 .active {
   background: #dcf836;
-  color: #fff;
-}
-a:link {
-  text-decoration: none;
-  color: #dcf836;
+  color: #131212;
 }

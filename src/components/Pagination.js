@@ -41,17 +41,17 @@ export default function Pagination(props) {
 
   const paginationRender = (
     <div className="flex-container">
-      <div> Current page : {currentPage} </div>
+      <div>
+        Page {currentPage} Of {maxPages}
+      </div>
 
       <div className="paginate-ctn">
         <div className="round-effect" onClick={prevPage}>
-          {" "}
-          &lsaquo;{" "}
+          &lsaquo;
         </div>
         {items}
         <div className="round-effect" onClick={nextPage}>
-          {" "}
-          &rsaquo;{" "}
+          &rsaquo;
         </div>
       </div>
     </div>
