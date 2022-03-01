@@ -1,0 +1,29 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+.detailsContainerActor {
+  display: flex;
+  flex-direction: column;
+
+  padding-right: 13%;
+  padding-left: 13%;
+}
+.col {
+  max-width: 269px;
+  width: 80%;
+  margin: 15px;
+  height: auto;
+  height: 90%;
+  text-align: justify;
+}
+
+.ActorImg {
+  border-radius: 10px;
+}
+
+@media (max-width: 556px) {
+  .detailsContainerActor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

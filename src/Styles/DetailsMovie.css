@@ -89,6 +89,16 @@
   color: white;
   word-wrap: break-word;
 }
+.not-link-show{
+  
+  text-decoration: none;
+  color: white;
+}
+
+.not-link-show > a {
+   text-decoration: none;
+  color: white;
+}
 @media (max-width: 556px) {
   .detailsContainer {
     display: flex;

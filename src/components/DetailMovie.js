@@ -1,10 +1,11 @@
 /* eslint-disable array-callback-return */
 import "../Styles/DetailsMovie.css";
 import { getService } from "../utils/httpClient";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { useEffect, useState } from "react";
 import CircularProgress from "./CircularProgress";
+import ShowMoreText from "react-show-more-text";
 
 export default function DetailMovie() {
   const [movieDetail, setMovieDetail] = useState([]);
@@ -12,6 +13,8 @@ export default function DetailMovie() {
   const [imagesDetail, setimagesDetail] = useState([]);
 
   const [videosDetail, setVideosDetail] = useState([]);
+  
+  const [CreditsDetail, setCreditsDetail] = useState([]);
 
   const { movieId } = useParams();
 
@@ -33,12 +36,17 @@ export default function DetailMovie() {
     let imagesCrousel = [];
     var urlDetailsVideos = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
     var urlDetailsImages = `https://api.themoviedb.org/3/movie/${movieId}/images`;
+    var urlDetailsCredits = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+
 
     var response = getService(urlDetailsVideos);
     var responseImages = getService(urlDetailsImages);
+    var responseCredits = getService(urlDetailsCredits);
 
     var dataResponseVideos = await response;
     var dataResponseImages = await responseImages;
+    var dataResponseCredits = await responseCredits;
+
     dataResponseImages.backdrops.map((images) => {
       imagesCrousel.push({
         original: `${imageUrl + images.file_path}`,
@@ -53,8 +61,10 @@ export default function DetailMovie() {
       });
     });
 
+    console.log(dataResponseCredits)
     setVideosDetail(dataResponseVideos);
     setimagesDetail(imagesCrousel);
+    setCreditsDetail(dataResponseCredits);
   };
 
   const convertMinsToTime = (mins) => {
@@ -89,26 +99,10 @@ export default function DetailMovie() {
               percentage={movieDetail.vote_average}
               color="#f4b907"
             />
-            <p style={{ "margin-left": "2%" }} className="p-titles">
+            <p style={{ "marginleft": "2%" }} className="p-titles">
               <strong className="color-titles">RunTime: </strong>
               {convertMinsToTime(movieDetail.runtime)}
             </p>
-          </div>
-          <div className="logos-companies">
-            <strong className="color-titles"> production companies: </strong>
-            {!!movieDetail.production_companies &&
-              movieDetail.production_companies.map((movie, index) => {
-                if (movie.logo_path != null) {
-                  return (
-                    <img
-                      className="img-logo"
-                      src={imageUrl + movie.logo_path}
-                      alt={movie.name + index}
-                      key={movie.name}
-                    ></img>
-                  );
-                }
-              })}
           </div>
 
           <p className="p-titles ">
@@ -139,6 +133,37 @@ export default function DetailMovie() {
             <strong className="color-titles">Release date: </strong>
             {movieDetail.release_date}
           </p>
+          <p className="p-titles ">
+            <strong className="color-titles">Cast: </strong>
+            <ShowMoreText className="not-lin"
+              lines={2}
+              more="Show More"
+              less="Show Less"
+              expanded={false}
+            >
+            {!!CreditsDetail.cast &&
+              CreditsDetail.cast
+                .map((cast) => {
+                 return <Link key={cast.id} style={{ textDecoration: "none",color: "white" }} to={"/actor/" + cast.id}>{cast.name}</Link>
+                }).reduce((acc, x) => acc === null ? x : <>{acc} , {x}</>, null)}
+            </ShowMoreText>
+          </p>
+          <div className="logos-companies">
+            <strong className="color-titles"> production companies: </strong>
+            {!!movieDetail.production_companies &&
+              movieDetail.production_companies.map((movie, index) => {
+                if (movie.logo_path != null) {
+                  return (
+                    <img
+                      className="img-logo"
+                      src={imageUrl + movie.logo_path}
+                      alt={movie.name + index}
+                      key={movie.name}
+                    ></img>
+                  );
+                }
+              })}
+          </div>
         </div>
       </div>
       <div className="imgesContainer">
