@@ -14,8 +14,8 @@ export default function Home() {
 
   const getMovies = async (Page) => {
     let urlMovies = `https://api.themoviedb.org/3/movie/popular?page=${Page}`;
-    var response = getService(urlMovies);
-    var dataResponse = await response;
+    let response = getService(urlMovies);
+    let dataResponse = await response;
     setMovies(dataResponse);
     setPageActual(dataResponse.page);
   };

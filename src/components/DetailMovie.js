@@ -26,26 +26,26 @@ export default function DetailMovie() {
   }, [movieId]);
 
   const getDetailsMovie = async (movieId) => {
-    var urlDetails = `https://api.themoviedb.org/3/movie/${movieId}`;
+    let urlDetails = `https://api.themoviedb.org/3/movie/${movieId}`;
 
-    var response = getService(urlDetails);
-    var dataResponse = await response;
+    let response = getService(urlDetails);
+    let dataResponse = await response;
     setMovieDetail(dataResponse);
   };
   const getDetailsMovieVideosAndImages = async (movieId) => {
     let imagesCrousel = [];
-    var urlDetailsVideos = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
-    var urlDetailsImages = `https://api.themoviedb.org/3/movie/${movieId}/images`;
-    var urlDetailsCredits = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+    let urlDetailsVideos = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
+    let urlDetailsImages = `https://api.themoviedb.org/3/movie/${movieId}/images`;
+    let urlDetailsCredits = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
 
 
-    var response = getService(urlDetailsVideos);
-    var responseImages = getService(urlDetailsImages);
-    var responseCredits = getService(urlDetailsCredits);
+    let response = getService(urlDetailsVideos);
+    let responseImages = getService(urlDetailsImages);
+    let responseCredits = getService(urlDetailsCredits);
 
-    var dataResponseVideos = await response;
-    var dataResponseImages = await responseImages;
-    var dataResponseCredits = await responseCredits;
+    let dataResponseVideos = await response;
+    let dataResponseImages = await responseImages;
+    let dataResponseCredits = await responseCredits;
 
     dataResponseImages.backdrops.map((images) => {
       imagesCrousel.push({
@@ -61,7 +61,6 @@ export default function DetailMovie() {
       });
     });
 
-    console.log(dataResponseCredits)
     setVideosDetail(dataResponseVideos);
     setimagesDetail(imagesCrousel);
     setCreditsDetail(dataResponseCredits);
