@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import "../Styles/DetailsMovie.css";
 import { getService } from "../utils/httpClient";
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { useEffect, useState } from "react";
 import CircularProgress from "./CircularProgress";
@@ -13,7 +13,7 @@ export default function DetailMovie() {
   const [imagesDetail, setimagesDetail] = useState([]);
 
   const [videosDetail, setVideosDetail] = useState([]);
-  
+
   const [CreditsDetail, setCreditsDetail] = useState([]);
 
   const { movieId } = useParams();
@@ -37,7 +37,6 @@ export default function DetailMovie() {
     let urlDetailsVideos = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
     let urlDetailsImages = `https://api.themoviedb.org/3/movie/${movieId}/images`;
     let urlDetailsCredits = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
-
 
     let response = getService(urlDetailsVideos);
     let responseImages = getService(urlDetailsImages);
@@ -83,7 +82,11 @@ export default function DetailMovie() {
       <div className="detailsContainer ">
         <img
           className="col movieImg"
-          src={imageUrl + movieDetail.poster_path}
+          src={
+            movieDetail.poster_path == null
+              ? require("../img/notfound.jpg").default
+              : imageUrl + movieDetail.poster_path
+          }
           alt={movieDetail.poster_path}
         ></img>
         <div className="col2 movieDetails">
@@ -98,7 +101,7 @@ export default function DetailMovie() {
               percentage={movieDetail.vote_average}
               color="#f4b907"
             />
-            <p style={{ "marginleft": "2%" }} className="p-titles">
+            <p style={{ marginleft: "2%" }} className="p-titles">
               <strong className="color-titles">RunTime: </strong>
               {convertMinsToTime(movieDetail.runtime)}
             </p>
@@ -134,17 +137,37 @@ export default function DetailMovie() {
           </p>
           <p className="p-titles ">
             <strong className="color-titles">Cast: </strong>
-            <ShowMoreText className="margin-cast"
+            <ShowMoreText
+              className="margin-cast"
               lines={2}
               more="Show More"
               less="Show Less"
               expanded={false}
             >
-            {!!CreditsDetail.cast &&
-              CreditsDetail.cast
-                .map((cast) => {
-                 return <Link key={cast.id} style={{ textDecoration: "none",color: "white" }} to={"/actor/" + cast.id}>{cast.name}</Link>
-                }).reduce((acc, x) => acc === null ? x : <>{acc} , {x}</>, null)}
+              {!!CreditsDetail.cast &&
+                CreditsDetail.cast
+                  .map((cast) => {
+                    return (
+                      <Link
+                        key={cast.id}
+                        style={{ textDecoration: "none", color: "white" }}
+                        to={"/actor/" + cast.id}
+                      >
+                        {cast.name}
+                      </Link>
+                    );
+                  })
+                  .reduce(
+                    (acc, x) =>
+                      acc === null ? (
+                        x
+                      ) : (
+                        <>
+                          {acc} , {x}
+                        </>
+                      ),
+                    null
+                  )}
             </ShowMoreText>
           </p>
           <div className="logos-companies">
