@@ -134,7 +134,7 @@ export default function DetailMovie() {
           </p>
           <p className="p-titles ">
             <strong className="color-titles">Cast: </strong>
-            <ShowMoreText className="not-lin"
+            <ShowMoreText className="margin-cast"
               lines={2}
               more="Show More"
               less="Show Less"

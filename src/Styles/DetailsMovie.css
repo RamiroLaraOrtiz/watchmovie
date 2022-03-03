@@ -94,7 +94,8 @@
   text-decoration: none;
   color: white;
 }
-
+.margin-cast{
+    margin-right: 5%;}
 .not-link-show > a {
    text-decoration: none;
   color: white;

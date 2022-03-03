@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable array-callback-return */
 import "../Styles/ActorPage.css";
 import { getService } from "../utils/httpClient";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { useEffect, useState } from "react";
 
@@ -55,7 +56,6 @@ export default function ActorPage() {
 
     ActorExternalIds(responseExternalIds);
   };
- 
 
   const calculate_age = (dob1) => {
     let today = new Date();
@@ -78,21 +78,32 @@ export default function ActorPage() {
             src={imageUrl + ActorDetail.profile_path}
             alt={ActorDetail.profile_path}
           ></img>
-        <p>Name: {ActorDetail.name}</p>
-
-        <p>Also known as: 
-             {!!ActorDetail.also_known_as &&
+        <p className="p-name"> {ActorDetail.name}</p>
+        <p className="p-title">Also known as </p>
+             <p className="p-content">{!!ActorDetail.also_known_as &&
               ActorDetail.also_known_as
                 .map((actor) => {
                   return actor;
                 })
                 .join(", ")}</p>
-        <p>Birthday: {ActorDetail.birthday} ({calculate_age(ActorDetail.birthday)} Years)</p>
-        <p>deathday: {ActorDetail.deathday  == null ?'still alive':ActorDetail.deathday}</p>
-        <p>Place of birth: {ActorDetail.place_of_birth }</p>
+        <p className="p-title">Birthday</p> <p className="p-content">{ActorDetail.birthday} ({calculate_age(ActorDetail.birthday)} Years)</p>
+        <p className="p-title">deathday</p> <p className="p-content">{ActorDetail.deathday  == null ?'Still Alive 🤙':ActorDetail.deathday+' 🥶 😭'}</p>
+        <p className="p-title">Place of birth</p> <p className="p-content">{ActorDetail.place_of_birth }</p>
+        <div className="social-links">
+               {ExternalIds.facebook_id == null ? '' :<a href={'https://www.facebook.com/'+ExternalIds.facebook_id}  target="_blank">
+                  <i className="fa fa-facebook-f"></i>
+                </a>} 
+               {ExternalIds.instagram_id == null ? '' :<a  href={'https://www.instagram.com/'+ExternalIds.instagram_id}  target="_blank">
+                  <i className="fa fa-instagram"></i>
+                </a>}
+                {ExternalIds.twitter_id == null ? '' :<a  href={'https://twitter.com/'+ExternalIds.twitter_id}  target="_blank">
+                  <i className="fa fa-twitter"></i>
+                </a>}
+        </div>
+        
       </div>
       <div className="profile-bio-images">
-      <p className="biograpy"> Biography:</p>
+      <p className="p-bio"> Biography</p>
        <p className="biograpy">  {ActorDetail.biography}</p>
        <div className="col-images-gallery"> 
         <ImageGallery items={ActorImages} showIndex={true} />
