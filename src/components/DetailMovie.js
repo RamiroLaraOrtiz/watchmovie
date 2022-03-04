@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { useEffect, useState } from "react";
 import CircularProgress from "./CircularProgress";
+import Movie from "./Movie";
 import ShowMoreText from "react-show-more-text";
 
 export default function DetailMovie() {
@@ -16,6 +17,10 @@ export default function DetailMovie() {
 
   const [CreditsDetail, setCreditsDetail] = useState([]);
 
+  
+  const [similarMovies, setMovieSimilar] = useState([]);
+  
+
   const { movieId } = useParams();
 
   const imageUrl = "https://image.tmdb.org/t/p/original";
@@ -23,6 +28,7 @@ export default function DetailMovie() {
   useEffect(() => {
     getDetailsMovie(movieId);
     getDetailsMovieVideosAndImages(movieId);
+    getMovieSimilar(movieId);
   }, [movieId]);
 
   const getDetailsMovie = async (movieId) => {
@@ -63,6 +69,15 @@ export default function DetailMovie() {
     setVideosDetail(dataResponseVideos);
     setimagesDetail(imagesCrousel);
     setCreditsDetail(dataResponseCredits);
+  };
+
+  const getMovieSimilar = async (movieId) => {
+    let urlMovieSimilar = `https://api.themoviedb.org/3/movie/${movieId}/similar`;
+
+    let response = getService(urlMovieSimilar);
+    let dataResponse = await response;
+    console.log(dataResponse)
+    setMovieSimilar(dataResponse);
   };
 
   const convertMinsToTime = (mins) => {
@@ -208,6 +223,20 @@ export default function DetailMovie() {
               </div>
             );
           })}
+      </div>
+      <div className="similarMovies">
+      <p className="p-similar"> Similar movies</p>
+        <div className="grid-container">
+          {!!similarMovies.results &&
+            similarMovies.results.map((movie) => (
+              <Movie
+                img={movie.poster_path}
+                title={movie.title}
+                id={movie.id}
+                key={movie.id}
+              ></Movie>
+            ))}
+        </div>
       </div>
     </div>
   );
