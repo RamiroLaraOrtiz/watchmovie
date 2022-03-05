@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/watchmovie/static/css/main.7371f87a.chunk.css",
-    "main.js": "/watchmovie/static/js/main.b11ef48d.chunk.js",
-    "main.js.map": "/watchmovie/static/js/main.b11ef48d.chunk.js.map",
+    "main.js": "/watchmovie/static/js/main.e1c8385b.chunk.js",
+    "main.js.map": "/watchmovie/static/js/main.e1c8385b.chunk.js.map",
     "runtime-main.js": "/watchmovie/static/js/runtime-main.b98f8bc7.js",
     "runtime-main.js.map": "/watchmovie/static/js/runtime-main.b98f8bc7.js.map",
     "static/css/2.7e4d6c7b.chunk.css": "/watchmovie/static/css/2.7e4d6c7b.chunk.css",
-    "static/js/2.087c982d.chunk.js": "/watchmovie/static/js/2.087c982d.chunk.js",
-    "static/js/2.087c982d.chunk.js.map": "/watchmovie/static/js/2.087c982d.chunk.js.map",
+    "static/js/2.81b3de9e.chunk.js": "/watchmovie/static/js/2.81b3de9e.chunk.js",
+    "static/js/2.81b3de9e.chunk.js.map": "/watchmovie/static/js/2.81b3de9e.chunk.js.map",
     "static/js/3.4213fdae.chunk.js": "/watchmovie/static/js/3.4213fdae.chunk.js",
     "static/js/3.4213fdae.chunk.js.map": "/watchmovie/static/js/3.4213fdae.chunk.js.map",
     "index.html": "/watchmovie/index.html",
     "static/css/2.7e4d6c7b.chunk.css.map": "/watchmovie/static/css/2.7e4d6c7b.chunk.css.map",
     "static/css/main.7371f87a.chunk.css.map": "/watchmovie/static/css/main.7371f87a.chunk.css.map",
-    "static/js/2.087c982d.chunk.js.LICENSE.txt": "/watchmovie/static/js/2.087c982d.chunk.js.LICENSE.txt",
+    "static/js/2.81b3de9e.chunk.js.LICENSE.txt": "/watchmovie/static/js/2.81b3de9e.chunk.js.LICENSE.txt",
     "static/media/font-awesome.min.css": "/watchmovie/static/media/fontawesome-webfont.f691f37e.woff",
     "static/media/notfound.jpg": "/watchmovie/static/media/notfound.0e7066aa.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.b98f8bc7.js",
     "static/css/2.7e4d6c7b.chunk.css",
-    "static/js/2.087c982d.chunk.js",
+    "static/js/2.81b3de9e.chunk.js",
     "static/css/main.7371f87a.chunk.css",
-    "static/js/main.b11ef48d.chunk.js"
+    "static/js/main.e1c8385b.chunk.js"
   ]
 }
