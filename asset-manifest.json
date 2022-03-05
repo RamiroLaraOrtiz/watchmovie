@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/watchmovie/static/css/main.3a1fcc85.chunk.css",
-    "main.js": "/watchmovie/static/js/main.fbd92fcb.chunk.js",
-    "main.js.map": "/watchmovie/static/js/main.fbd92fcb.chunk.js.map",
+    "main.js": "/watchmovie/static/js/main.e601adbc.chunk.js",
+    "main.js.map": "/watchmovie/static/js/main.e601adbc.chunk.js.map",
     "runtime-main.js": "/watchmovie/static/js/runtime-main.b98f8bc7.js",
     "runtime-main.js.map": "/watchmovie/static/js/runtime-main.b98f8bc7.js.map",
     "static/css/2.ef5f3d1c.chunk.css": "/watchmovie/static/css/2.ef5f3d1c.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.ef5f3d1c.chunk.css",
     "static/js/2.087c982d.chunk.js",
     "static/css/main.3a1fcc85.chunk.css",
-    "static/js/main.fbd92fcb.chunk.js"
+    "static/js/main.e601adbc.chunk.js"
   ]
 }
