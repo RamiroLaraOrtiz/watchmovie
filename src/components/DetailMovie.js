@@ -166,7 +166,7 @@ export default function DetailMovie() {
                       <Link
                         key={cast.id}
                         style={{ textDecoration: "none", color: "white" }}
-                        to={"/actor/" + cast.id}
+                        to={"/watchmovie/actor/" + cast.id}
                       >
                         {cast.name}
                       </Link>
