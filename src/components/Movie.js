@@ -8,7 +8,7 @@ export default function Movie(props) {
 
   return (
     <div className="grid-item">
-      <Link style={{ textDecoration: "none" }} to={"/watchmovie/movie/" + props.id}>
+      <Link style={{ textDecoration: "none" }}  to={"/movie/" + props.id}>
         <img className="image-poster border-img " src={image} alt={image} />
         <br></br>
         <span className="color-font">{props.title}</span>

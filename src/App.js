@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {  Routes, Route,HashRouter } from "react-router-dom";
 import Home from "./components/Home.js";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
@@ -8,15 +8,15 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
+    <HashRouter >
+      <Header  />
       <Routes>
-        <Route exact path="/watchmovie/" element={<Home />} />
-        <Route exact path="/watchmovie/movie/:movieId" element={<DetailMovie />} />
-        <Route exact path="/watchmovie/actor/:actorId" element={<ActorPage />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/movie/:movieId" element={<DetailMovie />} />
+        <Route exact path="/actor/:actorId" element={<ActorPage />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

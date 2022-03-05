@@ -10,16 +10,16 @@ export default function Footer() {
               <h4>Sitesoch</h4>
               <ul>
                 <li>
-                  <Link to="/watchmovie/">Home</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/watchmovie/">About</Link>
+                  <Link to="/">About</Link>
                 </li>
                 <li>
-                  <Link to="/watchmovie/">Pricing</Link>
+                  <Link to="/">Pricing</Link>
                 </li>
                 <li>
-                  <Link to="/watchmovie/">Privacy Policy</Link>
+                  <Link to="/">Privacy Policy</Link>
                 </li>
               </ul>
             </div>
@@ -27,16 +27,16 @@ export default function Footer() {
               <h4>Get Help</h4>
               <ul>
                 <li>
-                  <Link to="/watchmovie/">Shipping</Link>
+                  <Link to="/">Shipping</Link>
                 </li>
                 <li>
-                  <Link to="/watchmovie/">Returns</Link>
+                  <Link to="/">Returns</Link>
                 </li>
                 <li>
-                  <Link to="/watchmovie/">Order Status</Link>
+                  <Link to="/">Order Status</Link>
                 </li>
                 <li>
-                  <Link to="/watchmovie/">Payment Options</Link>
+                  <Link to="/">Payment Options</Link>
                 </li>
               </ul>
             </div>
@@ -44,7 +44,7 @@ export default function Footer() {
               <h4>Address</h4>
               <ul>
                 <li>
-                  <Link to="/watchmovie/">
+                  <Link to="/">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Cupiditate adipisci quia ab omnis id ipsum quae inventore
                   </Link>
@@ -54,16 +54,16 @@ export default function Footer() {
             <div className="footer-col">
               <h4>follow us</h4>
               <div className="social-links">
-                <Link to="/watchmovie/">
+                <Link to="/">
                   <i className="fa fa-google"></i>
                 </Link>
-                <Link to="/watchmovie/">
+                <Link to="/">
                   <i className="fa fa-facebook-f"></i>
                 </Link>
-                <Link to="/watchmovie/">
+                <Link to="/">
                   <i className="fa fa-instagram"></i>
                 </Link>
-                <Link to="/watchmovie/">
+                <Link to="/">
                   <i className="fa fa-twitter"></i>
                 </Link>
               </div>
