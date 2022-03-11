@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="background-div">
       <div className="grid-container">
         {!!Movies.results &&
           Movies.results.map((movie) => (
