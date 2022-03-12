@@ -80,7 +80,7 @@ export default function ActorPage() {
     return age_now;
   };
   return (
-    <div>
+    <div className="background-div">
       <div className="detailsContainerActor">
         <div className="profile-image">
           <img
