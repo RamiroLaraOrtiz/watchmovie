@@ -25,6 +25,7 @@ export default function ActorPage() {
     getActorImages(actorId);
     getActorExternalIds(actorId);
     getActorAppearances(actorId);
+    window.scrollTo(0, 0)
   }, [actorId]);
 
   const getActorDetails = async (actorId) => {

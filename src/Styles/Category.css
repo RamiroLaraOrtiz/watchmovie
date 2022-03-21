@@ -1,0 +1,25 @@
+.card-container{
+
+}
+
+.card{
+  background-color: white;
+  height: 150px;
+  width: 393px;
+  border-radius: 15px;
+  margin: 10px;
+}
+.title-card{
+  position: relative;
+  top: -50%;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+.title-card:hover{
+  pointer-events: none;
+}
+.card:hover{
+  opacity: 0.3;
+}

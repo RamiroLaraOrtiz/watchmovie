@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import Pagination from "./Pagination";
+import Category from "./Category";
 import { getService } from "../utils/httpClient";
 import "../Styles/Home.css";
 export default function Home() {
   const [Movies, setMovies] = useState([]);
 
+  const [Categories, setCatgories] = useState([]);
+
   const [Page, setPageActual] = useState(1);
 
   useEffect(() => {
     getMovies(Page);
+    getCategories();
+    window.scrollTo(0, 0)
   }, [Page]);
 
   const getMovies = async (Page) => {
@@ -20,8 +25,22 @@ export default function Home() {
     setPageActual(dataResponse.page);
   };
 
+  const getCategories = async () => {
+    let urlCategories = `https://api.themoviedb.org/3/genre/movie/list`;
+    let response = getService(urlCategories);
+    let dataResponseCategories = await response;
+    setCatgories(dataResponseCategories);
+  };
+
   return (
     <div className="background-div">
+      <div className="container-all-cards"> 
+      {!!Categories.genres &&
+          Categories.genres.map((category) => (
+            <Category
+              title={category.name}
+            ></Category>
+          ))} </div>
       <div className="grid-container">
         {!!Movies.results &&
           Movies.results.map((movie) => (

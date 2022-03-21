@@ -4,7 +4,19 @@
   grid-template-columns: repeat(auto-fit, minmax(186px, 1fr));
   padding: 10px;
 }
+.container-all-cards{
+  margin: 26px;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  height: auto;
+  flex-direction: row;
+}
 
+
+.container-all-cards{
+  margin: 26px;
+}
 .background-div {
   background: linear-gradient(
     183deg,

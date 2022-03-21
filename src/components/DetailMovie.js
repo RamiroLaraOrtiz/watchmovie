@@ -29,6 +29,7 @@ export default function DetailMovie() {
     getDetailsMovie(movieId);
     getDetailsMovieVideosAndImages(movieId);
     getMovieSimilar(movieId);
+    window.scrollTo(0, 0)
   }, [movieId]);
 
   const getDetailsMovie = async (movieId) => {
