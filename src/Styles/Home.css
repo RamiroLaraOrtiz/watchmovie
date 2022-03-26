@@ -16,6 +16,7 @@
 
 .container-all-cards{
   margin: 26px;
+  overflow-y: hidden;
 }
 .background-div {
   background: linear-gradient(
