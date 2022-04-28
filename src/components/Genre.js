@@ -5,8 +5,9 @@ import Movie from "./Movie";
 import Pagination from "./Pagination";
 import Category from "./Category";
 import { getService } from "../utils/httpClient";
-
 import "../Styles/Genre.css";
+import Header2 from "./Header2";
+
 export default function Genre() {
   
   const {genreName, genreId } = useParams();
@@ -29,7 +30,6 @@ export default function Genre() {
     let urlMovies = `https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${Page}&with_genres=${genreId}`;
     let response = getService(urlMovies);
     let dataResponse = await response;
-    console.log(dataResponse)
     setMovies(dataResponse);
     setPageActual(dataResponse.page);
     setTotalPage(dataResponse.total_pages);
@@ -44,37 +44,38 @@ export default function Genre() {
   };
 
   return (
-<div className="background-div">
-      <div className="container-all-cards"> 
+  <>
+  <Header2 />
+  <div className="background-div">
+    <div className="container-all-cards">
       {!!Categories.genres &&
-          Categories.genres.map((category) => (
-            <Category
-              title={category.name} id={category.id} key={category.id} onChange={() => {
-                setPageActual(1);
-              }}
-            ></Category>
-          ))}
-      </div>
-      <h1 className="title-genre">{genreName}</h1>
-      <div className="grid-container">
-        {!!Movies.results &&
-          Movies.results.map((movie) => (
-            <Movie
-              img={movie.poster_path}
-              title={movie.title}
-              id={movie.id}
-              key={movie.id}
-            ></Movie>
-          ))}
-      </div>
-
-      <Pagination
-        page={Page}
-        total={TotalPage}
-        onChange={(page) => {
-          setPageActual(page);
-        }}
-      />
+        Categories.genres.map((category) => (
+          <Category
+            title={category.name} id={category.id} key={category.id} onChange={() => {
+              setPageActual(1);
+            } }
+          ></Category>
+        ))}
     </div>
+    <h1 className="title-genre">{genreName}</h1>
+    <div className="grid-container">
+      {!!Movies.results &&
+        Movies.results.map((movie) => (
+          <Movie
+            img={movie.poster_path}
+            title={movie.title}
+            id={movie.id}
+            key={movie.id}
+          ></Movie>
+        ))}
+    </div>
+
+    <Pagination
+      page={Page}
+      total={TotalPage}
+      onChange={(page) => {
+        setPageActual(page);
+      } } />
+  </div></>
   );
 }

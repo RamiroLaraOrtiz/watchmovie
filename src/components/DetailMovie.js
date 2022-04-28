@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import CircularProgress from "./CircularProgress";
 import Movie from "./Movie";
 import ShowMoreText from "react-show-more-text";
-
+import Header2 from "./Header2";
 export default function DetailMovie() {
   const [movieDetail, setMovieDetail] = useState([]);
 
@@ -77,7 +77,6 @@ export default function DetailMovie() {
 
     let response = getService(urlMovieSimilar);
     let dataResponse = await response;
-    console.log(dataResponse)
     setMovieSimilar(dataResponse);
   };
 
@@ -89,6 +88,9 @@ export default function DetailMovie() {
   };
 
   return (
+    
+    <>
+    <Header2 />
     <div
       className="background-movie"
       style={{
@@ -98,11 +100,9 @@ export default function DetailMovie() {
       <div className="detailsContainer ">
         <img
           className="col movieImg"
-          src={
-            movieDetail.poster_path == null
-              ? require("../img/notfound.jpg").default
-              : imageUrl + movieDetail.poster_path
-          }
+          src={movieDetail.poster_path == null
+            ? require("../img/notfound.jpg").default
+            : imageUrl + movieDetail.poster_path}
           alt={movieDetail.poster_path}
         ></img>
         <div className="col2 movieDetails">
@@ -115,8 +115,7 @@ export default function DetailMovie() {
               sizeSVG={80}
               strokeWidth={20.5}
               percentage={movieDetail.vote_average}
-              color="#f4b907"
-            />
+              color="#f4b907" />
             <p style={{ marginleft: "2%" }} className="p-titles">
               <strong className="color-titles">RunTime: </strong>
               {convertMinsToTime(movieDetail.runtime)}
@@ -174,14 +173,13 @@ export default function DetailMovie() {
                     );
                   })
                   .reduce(
-                    (acc, x) =>
-                      acc === null ? (
-                        x
-                      ) : (
-                        <>
-                          {acc} , {x}
-                        </>
-                      ),
+                    (acc, x) => acc === null ? (
+                      x
+                    ) : (
+                      <>
+                        {acc}, {x}
+                      </>
+                    ),
                     null
                   )}
             </ShowMoreText>
@@ -206,7 +204,7 @@ export default function DetailMovie() {
       </div>
       <div className="imgesContainer">
         <div className="colImages">
-          <ImageGallery items={imagesDetail} showIndex={true} />
+          <ImageGallery items={imagesDetail} showIndex={true} showThumbnails={false} />
         </div>
       </div>
       <div className="videosContainer">
@@ -226,7 +224,7 @@ export default function DetailMovie() {
           })}
       </div>
       <div className="similarMovies">
-      <p className="p-similar"> Similar movies</p>
+        <p className="p-similar"> Similar movies</p>
         <div className="grid-container">
           {!!similarMovies.results &&
             similarMovies.results.map((movie) => (
@@ -239,6 +237,6 @@ export default function DetailMovie() {
             ))}
         </div>
       </div>
-    </div>
+    </div></>
   );
 }

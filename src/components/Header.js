@@ -1,25 +1,20 @@
 import { Link } from "react-router-dom";
 import "../Styles/Header.css";
 import "font-awesome/css/font-awesome.min.css";
+import VideoTitle from "../img/videotitle.mp4"
 
 export default function Header() {
   return (
-    <header className="header-fixed">
-      <div className="header-limiter">
-        <h1>
-          <Link to="/">
-            Watch<span>Movies</span>
-          </Link>
-        </h1>
+    <header className="video-wrapper">
+      <video src={VideoTitle}  autoPlay loop muted>
+      </video>
 
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/">Blog</Link>
-          <Link to="/">Pricing</Link>
-          <Link to="/">About</Link>
-          <Link to="/">Faq</Link>
-          <Link to="/">Contact</Link>
-        </nav>
+      <div className="header">
+      <Link to="/">
+      <h1 className="video-title">Watch <span>Movies</span></h1>
+      
+      </Link>
+      <h2> Watch <span>Enjoy</span> and Fun</h2>
       </div>
     </header>
   );

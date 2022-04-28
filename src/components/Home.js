@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import Category from "./Category";
 import { getService } from "../utils/httpClient";
 import "../Styles/Home.css";
+import Header from "./Header";
 export default function Home() {
   const [Movies, setMovies] = useState([]);
 
@@ -33,9 +34,10 @@ export default function Home() {
   };
 
   return (
-    <div className="background-div">
-      <div className="container-all-cards"> 
-      {!!Categories.genres &&
+    <><Header /><div className="background-div">
+
+      <div className="container-all-cards">
+        {!!Categories.genres &&
           Categories.genres.map((category) => (
             <Category
               title={category.name} id={category.id} key={category.id}
@@ -58,8 +60,7 @@ export default function Home() {
         total={500}
         onChange={(page) => {
           setPageActual(page);
-        }}
-      />
-    </div>
+        } } />
+    </div></>
   );
 }

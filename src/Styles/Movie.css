@@ -3,6 +3,7 @@
   font-size: 16px;
   text-align: center;
 }
+
 .image-poster {
   max-width: 161px;
 }
@@ -12,17 +13,23 @@
   transform: translateY(10px);
   opacity: 1;
   transition: 0.3s linear;
-  animation: jumping 1s ease-in-out infinite alternate;
+  animation: jumping 2s ease-in-out infinite alternate;
 }
+
 @keyframes jumping {
   0% {
-    transform: translateY(-8px);
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-9px);
   }
 
   100% {
-    transform: translateY(1px);
+    transform: translateY(4px);
   }
 }
+
 .no-link {
   text-decoration: none;
   color: white;

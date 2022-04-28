@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
+import Header2 from "./Header2";
 
 export default function ActorPage() {
   const { actorId } = useParams();
@@ -81,16 +82,16 @@ export default function ActorPage() {
     return age_now;
   };
   return (
+    <>
+    <Header2 />
     <div className="background-div">
       <div className="detailsContainerActor">
         <div className="profile-image">
           <img
             className="col-details-actor ActorImg"
-            src={
-              ActorDetail.profile_path == null
-                ? ""
-                : imageUrl + ActorDetail.profile_path
-            }
+            src={ActorDetail.profile_path == null
+              ? ""
+              : imageUrl + ActorDetail.profile_path}
             alt={ActorDetail.profile_path}
           ></img>
           <p className="p-name"> {ActorDetail.name}</p>
@@ -170,6 +171,6 @@ export default function ActorPage() {
             ))}
         </div>
       </div>
-    </div>
+    </div></>
   );
 }

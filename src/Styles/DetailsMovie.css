@@ -4,10 +4,15 @@
   display: flex;
   justify-content: flex-start;
 }
+
 .imgesContainer {
   display: flex;
   justify-content: center;
+  width: fit-content;
+  margin: auto;
+  padding: 10px 0px 40px 0px;
 }
+
 .videosContainer {
   display: flex;
   justify-content: center;
@@ -36,77 +41,95 @@
   max-width: 62%;
   flex-grow: 1;
 }
+
 .movieImg {
   border-radius: 15px;
 }
+
 .col-video {
   margin: auto;
   text-align: center;
   width: min-content;
 }
+
 .movieDetails {
   font-size: 1.5rem;
 }
+
 .color-titles {
   color: #8da0bc;
 }
+
 .p-titles {
   color: #fff;
 }
+
 .firstItem {
   margin-top: 0;
   color: white;
 }
+
 .background-movie {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
 }
+
 .rate-and-dates {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: stretch;
 }
+
 .logos-companies {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
 }
+
 .p-overview {
   margin-right: 6%;
 }
+
 .img-logo {
   width: 20%;
   height: 20%;
   margin: 10px;
   background: white;
 }
+
 .no-link {
   text-decoration: none;
   color: white;
   word-wrap: break-word;
 }
-.not-link-show{
-  
+
+.not-link-show {
+
   text-decoration: none;
   color: white;
 }
-.margin-cast{
-    margin-right: 5%;}
-.not-link-show > a {
-   text-decoration: none;
+
+.margin-cast {
+  margin-right: 5%;
+}
+
+.not-link-show>a {
+  text-decoration: none;
   color: white;
 }
-.p-similar{
+
+.p-similar {
   color: #fff;
   text-align: center;
   margin: 1% 0% 0% 0%;
   font-weight: bold;
   font-size: 25px;
 }
+
 @media (max-width: 556px) {
   .detailsContainer {
     display: flex;

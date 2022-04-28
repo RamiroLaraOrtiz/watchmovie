@@ -1,8 +1,8 @@
-.card-container{
+.card-container {
   height: 172px;
 }
 
-.card{
+.card {
   background-color: white;
   height: 150px;
   width: 393px;
@@ -10,9 +10,12 @@
   margin: 10px;
   transition: opacity 0.3s;
   -webkit-transition: opacity 0.3s;
-  opacity: 1;
+
+
+  opacity: 0.3;
 }
-.title-card{
+
+.title-card {
   position: relative;
   top: -58%;
   margin: 0;
@@ -20,9 +23,11 @@
   color: white;
   text-align: center;
 }
-.title-card:hover{
+
+.title-card:hover {
   pointer-events: none;
 }
-.card:hover{
-  opacity: 0.3;
+
+.card:hover {
+  opacity: 1;
 }
